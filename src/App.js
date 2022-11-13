@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { Router, Routes, Route } from 'react-router';
+
+import ViewPosts from './view-posts/ViewPosts.jsx'
 import './App.css';
+import Header from './header/Header.jsx';
+import bootstrap from 'bootstrap'
+
 
 function App() {
+
+  const SERVER_URL="http://127.0.0.1:1111"
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+
+      <Routes>
+        <Route path='/' element={<h1>Home</h1>}/>
+        <Route path='/allposts' element={<ViewPosts server_url={SERVER_URL}/>} />
+        
+      </Routes>
+
+    </Router>
+
   );
 }
 
